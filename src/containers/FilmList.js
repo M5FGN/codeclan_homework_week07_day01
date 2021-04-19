@@ -1,15 +1,24 @@
 import React from "react";
-import Film from "../components/Film";
+import { findDOMNode } from "react-dom";
+import Film from "./Film";
 
-const FilmList = () => {
+const FilmList = ({films}) => {
+
+    const FilmNodes = films.map((film) => {
     return (
-        <>
-        <h2>This is the Film List Container</h2>
-        < Film />
-        </>
+        < Film name = {film.name} url={film.url} key={film.id}/>
     )
+})
 
+return (
+    <>
+    {FilmNodes}
+    </>
+)
 }
+
+
+
 
 export default FilmList;
 
